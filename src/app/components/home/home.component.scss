@@ -1,0 +1,19 @@
+
+.homeDiv {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    &__homeText {
+ 
+    }
+
+
+    &__homeImage {
+    height: 100vh;
+    width: 100%;
+     img {
+        height: 100px;
+        width: 100px;
+     }
+    }
+}
