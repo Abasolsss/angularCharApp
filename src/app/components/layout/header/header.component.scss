@@ -1,4 +1,5 @@
 @use "../../../../assets/scssGlobals/functions" as rem;
+@use "../../../../assets/scssGlobals/functions" as em;
 @use "../../../../assets/scssGlobals/fontstyles" as roboto;
 @use "../../../../assets/scssGlobals/variables" as color;
 
@@ -26,11 +27,18 @@
           margin-inline: 10px;
           a {
             text-decoration: none;
-            font-size: rem.rem(16px);
+            font-size: rem.rem(20px);
             color: color.$color-white;
+            cursor: pointer;
           }
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .headerNav {
+    display: none;
   }
 }
