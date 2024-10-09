@@ -1,19 +1,36 @@
+@use "../../../assets/scssGlobals/fontstyles" as roboto;
+@use "../../../assets/scssGlobals/functions" as rem;
+@use "../../../assets/scssGlobals/variables" as fontstyles;
 
 .homeDiv {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-
-    &__homeText {
- 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  height: 100%;
+  height: 80svh;
+  align-items: center;
+  font-family: roboto.$roboto-regular;
+  font-weight: fontstyles.$fontweight-400;
+  font-style: fontstyles.$roboto-style;
+  &__homeText {
+    margin-block: auto;
+    h1 {
+      font-size: clamp(rem.rem(16px), 2.5vw, rem.rem(80px));
+      margin-block: rem.rem(16px);
+      padding-block: rem.rem(16px);
     }
-
-
-    &__homeImage {
-    height: 100vh;
-    width: 100%;
-     img {
-        height: 100px;
-        width: 100px;
-     }
+    p {
+      margin-block: 1rem;
+      font-size: rem.rem(20px);
+      padding-block: rem.rem(16px);
     }
+  }
+
+  &__homeImage {
+    margin: auto;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
 }

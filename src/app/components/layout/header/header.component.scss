@@ -1,29 +1,36 @@
-// @use '../../../assets/variables' as a;
-.headerNav {
-    display: flex;
-    width: 100%;
-    height: 100px;
-    padding-inline: 10px;
-    justify-content: space-between;
-    align-items: center;
-    &__Logo {
+@use "../../../../assets/scssGlobals/functions" as rem;
+@use "../../../../assets/scssGlobals/fontstyles" as roboto;
+@use "../../../../assets/scssGlobals/variables" as color;
 
+.headerNav {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  padding-inline: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-family: roboto.$roboto-regular;
+  &__Logo {
+    h1 {
+      color: color.$color-white;
     }
-    &__navBar {
-        nav {
-            ul {
-                margin:0;
-                padding: 0;
-                li {
-                    list-style-type: none;
-                    display: inline-block;
-                    margin-inline: 10px;
-                    a {
-                        text-decoration: none;
-                        font-size: 1rem;
-                    }
-                }
-            }
+  }
+  &__navBar {
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          list-style-type: none;
+          display: inline-block;
+          margin-inline: 10px;
+          a {
+            text-decoration: none;
+            font-size: rem.rem(16px);
+            color: color.$color-white;
+          }
         }
+      }
     }
+  }
 }
