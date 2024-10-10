@@ -35,10 +35,42 @@
       }
     }
   }
-}
 
-@media screen and (max-width: 500px) {
-  .headerNav {
+
+
+
+
+  @media screen and (max-width: em.em(500px)) {
+    &__navBar {
+     display: none;
+   }
+
+   &__hamburger {
+    display: block;
+    cursor: pointer;
+    span {
+      height: rem.rem(4px);
+      background-color: black;
+      width: rem.rem(30px);
+      display: block;
+      margin: rem.rem(5px)
+    }
+    
+  }
+ }
+ 
+
+ @media screen and (min-width: em.em(499px)) {
+  &__hamburger {
     display: none;
   }
+
+  &__navBar {
+    display: block;
+  }
+ }
+ 
+
 }
+
+
