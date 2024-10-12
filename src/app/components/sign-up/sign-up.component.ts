@@ -26,39 +26,26 @@ export class SignUpComponent {
     const userValue: HTMLInputElement | null = document.querySelector(".userNameValue")
     const value = this.userName = userValue?.value as string
 
-    const userValueLength = value.length
-
-    return userValueLength
+    this.arr.push(value)
+    return this.arr
   }
 
 
     submitFunct() {
-      
       const userLengthVal = this.userLength()
 
-      console.log(userLengthVal)
       const userValue: HTMLInputElement | null = document.querySelector(".userNameValue")
 
       const userValues = this.userName = userValue?.value as string
 
-
-      for(let i:number = 0; i < userValues.length; i++) {
-          const loopedUserName = userValues[i]
-          console.log(loopedUserName)
-
-      }
-
-      if (userLengthVal === this.userNameLength) {
-          console.log(true)
+    //checking the characters of the username
+      const finalUserValue: string = userLengthVal[this.arr.length - 1]
+      const finalUserValueLength: number = finalUserValue.length
+      
+      if(finalUserValueLength == this.userNameLength) {
+        console.log(true)
       } else {
         console.log(false)
       }
-  
     }
-
-
-  
-    
-
-    
 }
