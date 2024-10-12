@@ -1,6 +1,7 @@
 @use "../../../assets/scssGlobals/fontstyles" as roboto;
 @use "../../../assets/scssGlobals/functions" as rem;
 @use "../../../assets/scssGlobals/variables" as fontstyles;
+@use "../../../assets/scssGlobals/functions" as em;
 
 .homeDiv {
   display: grid;
@@ -15,13 +16,13 @@
   &__homeText {
     margin-block: auto;
     h1 {
-      font-size: clamp(rem.rem(16px), 2.5vw, rem.rem(80px));
+      font-size: clamp(rem.rem(25px), 2.5vw, rem.rem(80px));
       margin-block: rem.rem(16px);
       padding-block: rem.rem(16px);
     }
     p {
       margin-block: 1rem;
-      font-size: rem.rem(20px);
+      font-size: clamp(rem.rem(16px), 1vw, rem.rem(50px));
       padding-block: rem.rem(16px);
     }
   }
@@ -33,4 +34,16 @@
       width: 100%;
     }
   }
+
+  @media screen and (max-width: em.em(500px)) {
+    & {
+      display: block;
+      text-align: center;
+    }
+  }
+  
+
 }
+
+
+

@@ -8,6 +8,7 @@ import { Routes, RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
+
 export class HeaderComponent {
   testFunc = (): void => {
     console.log('Hello World');

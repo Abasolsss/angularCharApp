@@ -37,8 +37,9 @@
   }
 
 
-
-
+&__hamburger {
+  display: none;
+}
 
   @media screen and (max-width: em.em(500px)) {
     &__navBar {
@@ -59,18 +60,6 @@
   }
  }
  
-
- @media screen and (min-width: em.em(499px)) {
-  &__hamburger {
-    display: none;
-  }
-
-  &__navBar {
-    display: block;
-  }
- }
- 
-
 }
 
 
