@@ -1,80 +1,48 @@
 import { HtmlParser } from '@angular/compiler';
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import test from 'node:test';
-
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })
 
-
 //username should have 3 letters, 3 numbers
-
-
 export class SignUpComponent {
+  inputUserName: string = '';
+  userNameLength: number = 6;
+  submitFunct() {
+    //username should have 6 letters
+    // username shouldnt have uppercase
+    // 3 letters and 3 numbers
+    // 6 letters and 6 numbers = error
 
-  userName: string = ""
-  arr: string[] = []
-  userNameLength: number = 6
+    const userName: string = this.inputUserName;
+    const regExUppercase: RegExp = /([A-Z])/g;
+    const regExNumber: RegExp = /([0-9])/g;
+    const regExString: RegExp = /([a-z])/g;
 
+    const userNameStringcheck = userName.match(regExString);
+    const userNameNumbercheck = userName.match(regExNumber);
+    const userUppercaseCheck: boolean = regExUppercase.test(userName);
+    const stringLength = userNameStringcheck?.length as number;
+    const numberLength = userNameNumbercheck?.length as number;
+    const whiteSpaceCheck: boolean = /\s/.test(userName);
 
-  userLength() {
-    const userValue: HTMLInputElement | null = document.querySelector(".userNameValue")
-    const value = this.userName = userValue?.value as string
-    this.arr.push(value)
-    return this.arr
-  }
-
-
-    submitFunct() {
-      const userLengthVal = this.userLength()
-
-    //checking the characters of the username
-      const finalUserValue: string = userLengthVal[this.arr.length - 1]
-
-    
-
-      const finalUserValueLength: number = finalUserValue.length
-
-      const numerics: string[] = ["0","1","2","3","4","5","6","7","8","9"]
-      // const numericss: number[] = [0,1,2,3,4,5,6,7,8,9]
-      let incrementTest: number = 0;
-      let testA: number = 0;
-      const testings: boolean = /\s/.test(finalUserValue);
-      if(finalUserValueLength == this.userNameLength && testings === false) {
-        for(let i = 0; i < finalUserValue.length; i++) {
-            const stringVal: string = finalUserValue[i]
-            const tests = numerics.includes(stringVal, 0)
-            if(tests) {
-              testA++
-              if(testA === 6) {
-                console.log("there should be atleast 3 alphabetical characters for the username")
-              }
-            } else {
-              numerics.forEach((e) => {   
-                const test = finalUserValue.includes(e,0)
-                // console.log(test)
-                if(test) {
-                  incrementTest++
-                  if(incrementTest === 3) {
-                    console.log("valid username")
-                  }
-                } 
-              })
-            }
-        }
-        if(incrementTest < 3) {
-          console.log("Username should have 3 numbers")
-        }
-
-      } else {
-        console.log("Username should 6 characters long or without space character")
-      }
+    if (
+      numberLength === 3 &&
+      stringLength === 3 &&
+      userUppercaseCheck === false &&
+      whiteSpaceCheck === false
+    ) {
+      console.log('valid');
+    } else {
+      console.log(
+        'Username should have 3 numbers and 3 letters wtih no uppercase and no space'
+      );
     }
+  }
 }
