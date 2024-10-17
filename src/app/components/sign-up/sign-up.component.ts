@@ -13,7 +13,9 @@ import { FormsModule } from '@angular/forms';
 //username should have 3 letters, 3 numbers
 export class SignUpComponent {
   inputUserName: string = '';
-  userNameLength: number = 6;
+  userFirstName: string = '';
+  userLastName: string = '';
+
   submitFunct() {
     //username should have 6 letters
     // username shouldnt have uppercase
@@ -38,7 +40,6 @@ export class SignUpComponent {
       userUppercaseCheck === false &&
       whiteSpaceCheck === false
     ) {
-      console.log('valid');
     } else {
       console.log(
         'Username should have 3 numbers and 3 letters wtih no uppercase and no space'
