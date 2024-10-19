@@ -1,36 +1,40 @@
-<div class="formDiv">
-  <h1>Sign Up!</h1>
-  <label for="">
-    <input
-      type="text"
-      name=""
-      id=""
-      placeholder="Username"
-      class="userNameValue"
-      [(ngModel)]="inputUserName"
-    />
-  </label>
+<form action="POST">
+  <div class="formDiv">
+    <h1>Sign Up!</h1>
+    <label for="">
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="Username"
+        class="userNameValue"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="inputUserName"
+      />
+    </label>
 
-  <label for="">
-    <input
-      type="text"
-      name=""
-      id=""
-      placeholder="Firstname"
-      [(ngModel)]="userFirstName"
-    />
-  </label>
+    <label for="">
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="Firstname"
+        [(ngModel)]="userFirstName"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </label>
 
-  <label for="">
-    <input type="text" name="" id="" placeholder="Lastname" />
-  </label>
+    <label for="">
+      <input type="text" name="" id="" placeholder="Lastname" />
+    </label>
 
-  <label for="">
-    <input type="password" name="" id="" placeholder="Password" />
-  </label>
-  <label for="">
-    <input type="password" name="" id="" placeholder="Confirm Password" />
-  </label>
+    <label for="">
+      <input type="password" name="" id="" placeholder="Password" />
+    </label>
+    <label for="">
+      <input type="password" name="" id="" placeholder="Confirm Password" />
+    </label>
 
-  <button type="submit" (click)="submitFunct()">Register</button>
-</div>
+    <button type="submit" (click)="submitFunct()">Register</button>
+  </div>
+</form>

@@ -23,9 +23,12 @@ export class SignUpComponent {
     // 6 letters and 6 numbers = error
 
     const userName: string = this.inputUserName;
+    const userFirstName: string = this.userFirstName;
     const regExUppercase: RegExp = /([A-Z])/g;
     const regExNumber: RegExp = /([0-9])/g;
     const regExString: RegExp = /([a-z])/g;
+
+    const testReg: RegExp = /[a-z-A-Z]/g;
 
     const userNameStringcheck = userName.match(regExString);
     const userNameNumbercheck = userName.match(regExNumber);
@@ -34,16 +37,24 @@ export class SignUpComponent {
     const numberLength = userNameNumbercheck?.length as number;
     const whiteSpaceCheck: boolean = /\s/.test(userName);
 
-    if (
-      numberLength === 3 &&
-      stringLength === 3 &&
-      userUppercaseCheck === false &&
-      whiteSpaceCheck === false
-    ) {
-    } else {
-      console.log(
-        'Username should have 3 numbers and 3 letters wtih no uppercase and no space'
-      );
-    }
+    // if (
+    //   numberLength === 3 &&
+    //   stringLength === 3 &&
+    //   userUppercaseCheck === false &&
+    //   whiteSpaceCheck === false
+    // ) {
+    //   console.log('valid username');
+    //   if (this.userFirstName.length === 6) {
+    //     console.log('valid firstname');
+    //   }
+    // } else {
+    //   console.log(
+    //     'Username should have 3 numbers and 3 letters wtih no uppercase and no space'
+    //   );
+    // }
+
+    const test = testReg.test(userFirstName);
+
+    console.log(test);
   }
 }
