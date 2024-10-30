@@ -1,27 +1,31 @@
-@use '../../../assets/scssGlobals/functions' as rem;
+@use "../../../assets/scssGlobals/functions" as rem;
 
 .formDiv {
-    text-align: center;
-    height: 80svh;
-    & {
+  text-align: center;
+  height: 80svh;
+  & {
     label {
-        display: block;
-        margin-block: rem.rem(16px);
+      display: block;
+      margin-block: rem.rem(16px);
     }
 
     input {
-        padding-block: rem.rem(5px);
-        padding-inline: rem.rem(10px);
-        border: none;
-        border-radius: rem.rem(10px);
+      padding-block: rem.rem(5px);
+      padding-inline: rem.rem(10px);
+      border: none;
+      border-radius: rem.rem(10px);
     }
 
     button {
-        padding-inline: rem.rem(20px);
-        padding-block: rem.rem(10px);
-        border: none;
-        border-radius: rem.rem(5px);
-        text-transform: capitalize;
+      padding-inline: rem.rem(20px);
+      padding-block: rem.rem(10px);
+      border: none;
+      border-radius: rem.rem(5px);
+      text-transform: capitalize;
     }
-    }
+  }
+
+  .testError {
+    color: red;
+  }
 }
