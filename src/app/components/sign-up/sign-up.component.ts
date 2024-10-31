@@ -32,7 +32,7 @@ export class SignUpComponent {
 
   regEx = /([A-Z])/g;
 
-  userInfo = this.formBuilder.group({
+  userInfo = this.formBuilder.group({ 
     userName: ['', [Validators.required, userNameCheck]],
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],

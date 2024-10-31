@@ -27,10 +27,34 @@
       </span>
 
       <span
-        *ngIf="userInfo.controls['userName'].errors?.['upperCaseCheck']"
+        *ngIf="userInfo.controls['userName'].errors?.['userUpperCase']"
         class="testError"
       >
-        Username should atleast 6 characters with no Uppercase
+        Username shouldnt have uppercase letter
+      </span>
+
+
+      <span
+        *ngIf="userInfo.controls['userName'].errors?.['userLengthCheck']"
+        class="testError"
+      >
+      Username should be atleast 6 characters
+      </span>
+
+
+      <span
+        *ngIf="userInfo.controls['userName'].errors?.['spaceCheck']"
+        class="testError"
+      >
+      Username shouldnt have space or whitespace
+      </span>
+
+
+      <span
+        *ngIf="userInfo.controls['userName'].errors?.['userCheck']"
+        class="testError"
+      >
+      Username should have 3 letters or 3 numbers
       </span>
     </div>
 

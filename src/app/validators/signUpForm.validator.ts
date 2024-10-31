@@ -7,24 +7,46 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export function userNameCheck(control: AbstractControl) {
-  //   return (control: AbstractControl): ValidationErrors | null => {
-  //     const usernameVal: string = control.value || '';
-  //     const userNameLength: boolean = usernameVal.length === 6;
-  //     const userCheck: boolean = nameCheck.test(usernameVal);
-
-  //     if (userNameLength === false || userCheck === true) {
-  //       return { upperCaseCheck: true };
-  //     }
-  //     return null;
-  //   };
-
-  const test: RegExp = /([A-Z])/g;
   const usernameVal: string = control.value || '';
-  const userNameLength: boolean = usernameVal.length === 6;
-  const userCheck: boolean = test.test(usernameVal);
 
-  if (userNameLength === false || userCheck === true) {
-    return { upperCaseCheck: true };
+  const upperCaseCheck: RegExp = /([A-Z])/g;
+  const lowerCaseCheck: RegExp = /([a-z])/g
+  const numberCheck: RegExp = /([0-9])/g
+
+  const userNameLength: boolean = usernameVal.length === 6;
+  const userCheck: boolean = upperCaseCheck.test(usernameVal);
+  const spaceCheck: boolean = /\s/.test(usernameVal)
+
+
+  const userLowerCaseCheck = usernameVal.match(lowerCaseCheck)
+  const userNumCaseCheck = usernameVal.match(numberCheck)
+
+  const lowerCaseLength: boolean = userLowerCaseCheck?.length! === 3 || userNumCaseCheck?.length! === 3 
+  // const numberCaseLength: number = userNumCaseCheck?.length!
+
+  // const testo: boolean = lowerCaseLength === 3
+  // const testos: boolean = numberCaseLength === 3
+
+  if(userNameLength === false) {
+    return {userLengthCheck: true}
   }
-  return null;
+
+  if(lowerCaseLength === false) {
+    return {userCheck: true}
+  }
+
+  if(spaceCheck === true) {
+    return {spaceCheck: true}
+  }
+
+
+  
+  return null
+
+}
+
+
+
+export function firstLastNameCheck(control: AbstractControl) {
+  console.log(control.value)
 }
